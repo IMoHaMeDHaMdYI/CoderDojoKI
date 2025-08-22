@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Abenteuer - Level 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, #ff6b6b, #ee82ee, #8a2be2, #4169e1); /* New gradient */
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #ffeb3b; /* Bright Yellow */
+            text-shadow: 5px 5px 0px #e67e22; /* Orange Pixel Shadow */
+            margin-bottom: 30px;
+        }
+
+        .illustration-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .penguin-image {
+            width: 150px;
+            height: auto;
+            position: absolute;
+            left: -50px; /* Adjust as needed */
+            top: 50%;
+            transform: translateY(-50%);
+            animation: floating 3s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(-50%) translateY(0px); }
+            50% { transform: translateY(-50%) translateY(-15px); }
+            100% { transform: translateY(-50%) translateY(0px); }
+        }
+
+        .scientist-image {
+            width: auto;
+            height: 200px;
+            margin: 0 200px;
+        }
+
+        .lightbulb-icon {
+            width: auto;
+            height: 200px;
+            animation: pulsing-glow 2s infinite alternate;
+        }
+
+        @keyframes pulsing-glow {
+            0% { filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.5)); }
+            100% { filter: drop-shadow(0 0 20px rgba(255, 255, 0, 1)); }
+        }
+
+        .text-box {
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            color: #333; /* Dark text */
+            padding: 30px;
+            border-radius: 25px;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            font-size: 1.4em;
+            line-height: 1.5;
+            font-family: sans-serif; /* More readable font */
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .text-box .word-animation {
+            opacity: 0;
+            transform: translateY(20px);
+            display: inline-block; /* Important for transform to work on inline elements */
+            animation: wordAppear 0.5s forwards;
+        }
+
+        @keyframes wordAppear {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .start-button {
+            background-color: #00bfff; /* Deep Sky Blue */
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.8em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 8px 0 0 #008b8b; /* Dark Cyan Shadow */
+            transition: all 0.2s ease-in-out;
+            font-family: 'Press Start 2P', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 0 0 #008b8b, 0 0 30px 10px rgba(0, 191, 255, 0.8); /* Neon Blue Glow */
+        }
+
+        footer {
+            position: relative;
+            margin-top: auto;
+            width: 100%;
+            color: #b0bec5; /* Light Gray */
+            font-size: 0.9em;
+            font-family: sans-serif;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Level 2: Die Entdeckung der KI</h1>
+
+    <div class="illustration-container">
+        <img src="images/coder dojo penguin.png" alt="CoderDojo Penguin Mascot" class="penguin-image">
+        <img src="images/scientist.png" alt="Cartoon Scientists" class="scientist-image">
+        <img src="images/robot.png" alt="Light Bulb Icon" class="lightbulb-icon">
+    </div>
+
+    <div class="text-box">
+        <span class="word-animation" style="animation-delay: 0s;">Die</span>
+        <span class="word-animation" style="animation-delay: 0.1s;">Wissenschaftler</span>
+        <span class="word-animation" style="animation-delay: 0.2s;">haben</span>
+        <span class="word-animation" style="animation-delay: 0.3s;">herausgefunden,</span>
+        <span class="word-animation" style="animation-delay: 0.4s;">wie</span>
+        <span class="word-animation" style="animation-delay: 0.5s;">wir</span>
+        <span class="word-animation" style="animation-delay: 0.6s;">Zugang</span>
+        <span class="word-animation" style="animation-delay: 0.7s;">zu</span>
+        <span class="word-animation" style="animation-delay: 0.8s;">KI</span>
+        <span class="word-animation" style="animation-delay: 0.9s;">bekommen</span>
+        <span class="word-animation" style="animation-delay: 1.0s;">können!</span>
+        <span class="word-animation" style="animation-delay: 1.1s;">Jetzt</span>
+        <span class="word-animation" style="animation-delay: 1.2s;">können</span>
+        <span class="word-animation" style="animation-delay: 1.3s;">wir</span>
+        <span class="word-animation" style="animation-delay: 1.4s;">ihr</span>
+        <span class="word-animation" style="animation-delay: 1.5s;">sagen,</span>
+        <span class="word-animation" style="animation-delay: 1.6s;">was</span>
+        <span class="word-animation" style="animation-delay: 1.7s;">wir</span>
+        <span class="word-animation" style="animation-delay: 1.8s;">brauchen</span>
+        <span class="word-animation" style="animation-delay: 1.9s;">–</span>
+        <span class="word-animation" style="animation-delay: 2.0s;">und</span>
+        <span class="word-animation" style="animation-delay: 2.1s;">sie</span>
+        <span class="word-animation" style="animation-delay: 2.2s;">hilft</span>
+        <span class="word-animation" style="animation-delay: 2.3s;">uns</span>
+        <span class="word-animation" style="animation-delay: 2.4s;">auf</span>
+        <span class="word-animation" style="animation-delay: 2.5s;">spannende</span>
+        <span class="word-animation" style="animation-delay: 2.6s;">Weise.</span>
+    </div>
+
+    <button class="start-button" onclick="window.location.href='slide4.html'">
+        Gehe zu Level 3
+    </button>
+
+    <footer>
+        CoderDojo Berlin - Powered by Kids
+    </footer>
+
+</body>
+</html>

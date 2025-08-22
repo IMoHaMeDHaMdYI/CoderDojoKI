@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    flex-direction: column;
+}
+
+.start-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 0 0 #fbc02d, 0 0 30px 10px rgba(255, 235, 59, 0.8); /* Yellow Glow */
+}
+
+.start-button {
+    background-color: #ffeb3b; /* Bright Yellow */
+    color: #333; /* Dark text for contrast */
+    padding: 20px 40px;
+    font-size: 1.8em;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 8px 0 0 #fbc02d; /* Darker Yellow Shadow */
+    transition: all 0.2s ease-in-out;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.game-board {
+    width: 600px;
+    height: 400px;
+    background-color: #000;
+    border: 5px solid #333;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.paddle {
+    width: 10px;
+    height: 100px;
+    background-color: #fff;
+    position: absolute;
+}
+
+#paddle1 {
+    left: 10px;
+}
+
+#paddle2 {
+    right: 10px;
+}
+
+.ball {
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 292.5px; 
+}
+
+.score {
+    display: flex;
+    justify-content: space-around;
+    width: 600px;
+    font-size: 2em;
+    margin-bottom: 20px;
+}

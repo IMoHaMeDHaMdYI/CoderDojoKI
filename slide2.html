@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Abenteuer - Level 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, #8e44ad, #3498db, #2ecc71, #f1c40f); /* Different gradient */
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align content to top */
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            padding-top: 30px; /* Space from top */
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ffeb3b; /* Bright Yellow */
+            text-shadow: 5px 5px 0px #e67e22; /* Orange Pixel Shadow */
+            margin-bottom: 20px;
+        }
+
+        .penguin-container {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .penguin-image {
+            width: 150px;
+            height: auto;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .question-bubble {
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            color: #333; /* Dark text */
+            padding: 30px;
+            border-radius: 25px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            font-size: 1.5em;
+            line-height: 1.4;
+            font-family: sans-serif; /* More readable font for text bubble */
+        }
+
+        .question-bubble::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid rgba(255, 255, 255, 0.9);
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 900px;
+            width: 90%;
+        }
+
+        .example-item {
+            background-color: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .example-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .example-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .example-item p {
+            font-size: 1em;
+            margin: 0;
+            font-family: sans-serif; /* More readable font for examples */
+            color: #eee;
+        }
+
+        .start-button {
+            background-color: #27ae60; /* Bright Green */
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.8em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 8px 0 0 #229a54; /* Darker Green Shadow */
+            transition: all 0.2s ease-in-out;
+            font-family: 'Press Start 2P', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 50px;
+            margin-bottom: 20px; /* Space above footer */
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 0 0 #229a54, 0 0 25px 8px rgba(39, 174, 96, 0.8); /* Glow effect */
+        }
+
+        footer {
+            position: relative; /* Changed from absolute to relative */
+            margin-top: auto; /* Pushes footer to the bottom */
+            width: 100%;
+            color: #b0bec5; /* Light Gray */
+            font-size: 0.9em;
+            font-family: sans-serif;
+            padding-bottom: 20px; /* Space from bottom */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Level 1: Was ist KI?</h1>
+
+    <div class="penguin-container">
+        <img src="images/coder dojo penguin.png" alt="CoderDojo Penguin Mascot" class="penguin-image">
+    </div>
+
+    <div class="question-bubble">
+        Wer hat schon mal KI benutzt? Wozu?
+    </div>
+
+    <div class="examples-grid">
+        <div class="example-item">
+            <img src="https://www.clipartmax.com/png/full/2-20900_microphone-icon-png-transparent.png" alt="Mikrofon Icon">
+            <p>Sprachassistent (Siri, Alexa, Google)</p>
+        </div>
+        <div class="example-item">
+            <img src="https://www.clipartmax.com/png/small/58-587128_surveillance-camera-for-indoor-and-outdoor-youtube-play-button-png.png" alt="Play Button Icon">
+            <p>YouTube/TikTok Empfehlungen</p>
+        </div>
+        <div class="example-item">
+            <img src="https://www.clipartmax.com/png/small/218-2181559_google-translate-icon-google-translate-logo.png" alt="Buch Icon">
+            <p>Übersetzer (Google Translate)</p>
+        </div>
+    </div>
+
+    <button class="start-button" onclick="window.location.href='slide3.html'">
+        Gehe zu Level 2
+    </button>
+
+    <footer>
+        CoderDojo Berlin - Powered by Kids
+    </footer>
+
+</body>
+</html>

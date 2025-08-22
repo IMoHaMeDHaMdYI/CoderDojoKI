@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weltraum-Abenteuer</title>
+    <style>
+        body {
+            background-color: black;
+            background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 40px;
+        }
+        h1 {
+            color: silver;
+            font-size: 3.5em;
+            text-shadow: 2px 2px 8px #000000;
+        }
+        .spaceship {
+            width: 50%;
+            max-width: 400px;
+            margin: 30px 0;
+        }
+        .planets-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .planet {
+            width: 150px;
+        }
+        .planet img {
+            width: 100%;
+            border-radius: 50%;
+        }
+        .planet figcaption {
+            margin-top: 10px;
+            font-size: 1em;
+        }
+        .action-button {
+            background-color: #0077ff; /* Leuchtend blau */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 50px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 0 15px #0077ff;
+        }
+        .action-button:hover {
+            background-color: #0055cc;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Willkommen im Weltraum-Abenteuer</h1>
+
+    <img src="https://images.unsplash.com/photo-1537953773345-d172cc5d1356?q=80&w=1932&auto=format&fit=crop" alt="Raumschiff im All" class="spaceship">
+
+    <div class="planets-container">
+        <figure class="planet">
+            <img src="https://images.unsplash.com/photo-1614728263952-84ea256ec677?q=80&w=1974&auto=format&fit=crop" alt="Planet 1">
+            <figcaption>Feuer-Planet</figcaption>
+        </figure>
+        <figure class="planet">
+            <img src="images/planet2.jpg" alt="Planet 2">
+            <figcaption>Eis-Welt</figcaption>
+        </figure>
+        <figure class="planet">
+            <img src="images/planet3.jpg" alt="Planet 3">
+            <figcaption>Gas-Riese</figcaption>
+        </figure>
+    </div>
+
+    <button class="action-button">Mission starten</button>
+
+</body>
+</html>

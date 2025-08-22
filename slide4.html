@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Abenteuer - Prompting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee); /* New gradient */
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ffeb3b; /* Bright Yellow */
+            text-shadow: 5px 5px 0px #e67e22; /* Orange Pixel Shadow */
+            margin-bottom: 30px;
+        }
+
+        .main-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .penguin-image {
+            width: 150px;
+            height: auto;
+            position: absolute;
+            left: -300px; /* Adjust to point at the image */
+            top: 50%;
+            transform: translateY(-50%);
+            animation: floating 3s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(-50%) translateY(0px); }
+            50% { transform: translateY(-50%) translateY(-15px); }
+            100% { transform: translateY(-50%) translateY(0px); }
+        }
+
+        .mission-image-placeholder {
+            width: 400px;
+            height: 300px;
+            background-color: #5cb85c; /* Green placeholder */
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .collapsible-container {
+            width: 80%;
+            max-width: 700px;
+            margin-top: 20px;
+        }
+
+        .show-hint-button {
+            background-color: #f0ad4e; /* Orange */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            transition: background-color 0.2s;
+            box-shadow: 0 5px 0 0 #ec971f;
+        }
+
+        .show-hint-button:hover {
+            background-color: #ec971f;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 0 0 #ec971f;
+        }
+
+        .collapsible-content {
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            color: #333; /* Dark text */
+            padding: 0 30px;
+            border-radius: 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-family: sans-serif;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .collapsible-content.expanded {
+            max-height: 200px; /* Adjust based on content height */
+            padding: 10px 10px;
+        }
+
+        .start-button {
+            display: none; /* Hidden initially */
+            background-color: #ffeb3b; /* Bright Yellow */
+            color: #333; /* Dark text for contrast */
+            padding: 20px 40px;
+            font-size: 1.8em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 8px 0 0 #fbc02d; /* Darker Yellow Shadow */
+            transition: all 0.2s ease-in-out;
+            font-family: 'Press Start 2P', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 0 0 #fbc02d, 0 0 30px 10px rgba(255, 235, 59, 0.8); /* Yellow Glow */
+        }
+
+        .button-word-animation {
+            opacity: 0;
+            transform: translateY(10px);
+            display: inline-block;
+            animation: buttonWordAppear 0.5s forwards;
+        }
+
+        @keyframes buttonWordAppear {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            position: relative;
+            margin-top: auto;
+            width: 100%;
+            color: #b0bec5; /* Light Gray */
+            font-size: 0.9em;
+            font-family: sans-serif;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Durch Prompting können wir mit KI kommunizieren</h1>
+
+    <div class="main-content">
+        <img src="images/coder dojo penguin.png" alt="CoderDojo Penguin Mascot" class="penguin-image">
+            <img src="images/prompt.png" class="mission-image-placeholder">
+    </div>
+
+    <div class="collapsible-container">
+        <button class="show-hint-button" onclick="toggleHint()">Zeige Hinweis</button>
+        <div class="collapsible-content" id="hintContent">
+            <p>Mit Prompting sagen wir der KI genau, was wir möchten. Sie versteht unsere Anweisungen und hilft uns beim Bauen von Webseiten, Spielen oder Bildern.</p>
+        </div>
+    </div>
+
+    <button class="start-button" id="startButton" onclick="window.location.href='slide5.html'">
+        <span class="button-word-animation" style="animation-delay: 0s;">Access</span>
+        <span class="button-word-animation" style="animation-delay: 0.1s;">Granted</span>
+        <span class="button-word-animation" style="animation-delay: 0.2s;">to</span>
+        <span class="button-word-animation" style="animation-delay: 0.3s;">Start</span>
+        <span class="button-word-animation" style="animation-delay: 0.4s;">Prompting</span>
+    </button>
+
+    <footer>
+        CoderDojo Berlin - Powered by Kids
+    </footer>
+
+    <script>
+        function toggleHint() {
+            const hintContent = document.getElementById('hintContent');
+            const showHintButton = document.querySelector('.show-hint-button');
+            const startButton = document.getElementById('startButton');
+
+            if (hintContent.classList.contains('expanded')) {
+                hintContent.classList.remove('expanded');
+                showHintButton.textContent = 'Zeige Hinweis';
+                startButton.style.display = 'none'; // Hide button when hint collapses
+            } else {
+                hintContent.classList.add('expanded');
+                showHintButton.textContent = 'Verstecke Hinweis';
+                startButton.style.display = 'block'; // Show button
+                // Trigger text animation (re-apply classes or force reflow if needed)
+                startButton.innerHTML = startButton.innerHTML; // Force reflow to restart animation
+            }
+        }
+    </script>
+
+</body>
+</html>

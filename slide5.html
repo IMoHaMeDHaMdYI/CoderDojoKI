@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderDojo Abenteuer - Prompting Start</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 30px 0;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, #a6c1ee, #fbc2eb, #fad0c4, #ff9a9e); /* New gradient */
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #ffeb3b; /* Bright Yellow */
+            text-shadow: 5px 5px 0px #e67e22; /* Orange Pixel Shadow */
+            margin-bottom: 30px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 30px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .penguin-image {
+            width: 150px;
+            height: auto;
+            position: absolute;
+            left: 20px; /* Position on the left */
+            top: 20px;
+            animation: floating 3s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            aspect-ratio: 4/3;
+            margin: 20px 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 20px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .carousel-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+
+        .start-button {
+            background-color: #ffeb3b; /* Bright Yellow */
+            color: #333; /* Dark text for contrast */
+            padding: 20px 40px;
+            font-size: 1.8em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 8px 0 0 #fbc02d; /* Darker Yellow Shadow */
+            transition: all 0.2s ease-in-out;
+            font-family: 'Press Start 2P', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 0 0 #fbc02d, 0 0 30px 10px rgba(255, 235, 59, 0.8); /* Yellow Glow */
+        }
+
+        footer {
+            position: relative;
+            margin-top: auto;
+            width: 100%;
+            color: #b0bec5; /* Light Gray */
+            font-size: 0.9em;
+            font-family: sans-serif;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Starte Prompting</h1>
+
+    <div class="main-content">
+        <img src="images/coder dojo penguin.png" alt="CoderDojo Penguin Mascot" class="penguin-image">
+        <div class="carousel-container">
+            <button class="carousel-arrow left-arrow" onclick="prevImage()">&lt;</button>
+            <img src="images/prompt one.png" alt="Prompt Example" class="carousel-image" id="carouselImage">
+            <button class="carousel-arrow right-arrow" onclick="nextImage()">&gt;</button>
+        </div>
+    </div>
+
+    <button class="start-button" onclick="window.location.href='pingpongspiel/slide6.html'">
+        Zeige das Spiel
+    </button>
+
+    <footer>
+        CoderDojo Berlin - Powered by Kids
+    </footer>
+
+    <script>
+        const images = [
+            'images/prompt one.png',
+            'images/prompt two.png',
+            'images/prompt three.png'
+        ];
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const carouselImage = document.getElementById('carouselImage');
+            carouselImage.src = images[index];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        // Show the first image when the page loads
+        window.onload = () => showImage(currentIndex);
+    </script>
+
+</body>
+</html>
