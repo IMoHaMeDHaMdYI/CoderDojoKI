@@ -3,87 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weltraum-Abenteuer</title>
+    <title>CoderDojo Abenteuer - Start</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: black;
-            background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
             margin: 0;
-            padding: 40px;
-        }
-        h1 {
-            color: silver;
-            font-size: 3.5em;
-            text-shadow: 2px 2px 8px #000000;
-        }
-        .spaceship {
-            width: 50%;
-            max-width: 400px;
-            margin: 30px 0;
-        }
-        .planets-container {
+            padding: 0;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #f7ee4d);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-            flex-wrap: wrap;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Prevent scrollbars from animation */
         }
-        .planet {
-            width: 150px;
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .planet img {
-            width: 100%;
-            border-radius: 50%;
+
+        h1 {
+            font-size: 3.5em;
+            color: #ffeb3b; /* Bright Yellow */
+            text-shadow: 5px 5px 0px #ff5722; /* Orange Pixel Shadow */
+            margin-bottom: 10px;
         }
-        .planet figcaption {
-            margin-top: 10px;
-            font-size: 1em;
+
+        h2 {
+            font-size: 1.5em;
+            color: #a7ffeb; /* Light Cyan */
+            margin-top: 0;
+            margin-bottom: 30px;
         }
-        .action-button {
-            background-color: #0077ff; /* Leuchtend blau */
+
+        .penguin-image {
+            width: 200px;
+            height: auto;
+            margin: 20px 0;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .start-button {
+            background-color: #4CAF50; /* Bright Green */
             color: white;
-            padding: 15px 30px;
-            font-size: 1.2em;
+            padding: 20px 40px;
+            font-size: 1.8em;
             border: none;
-            border-radius: 5px;
+            border-radius: 15px;
             cursor: pointer;
-            margin-top: 50px;
-            transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 0 0 15px #0077ff;
+            box-shadow: 0 8px 0 0 #388E3C; /* Darker Green Shadow */
+            transition: all 0.2s ease-in-out;
+            font-family: 'Press Start 2P', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 30px;
         }
-        .action-button:hover {
-            background-color: #0055cc;
-            transform: scale(1.05);
+
+        .start-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 0 0 #388E3C, 0 0 20px 5px rgba(76, 175, 80, 0.7); /* Glow effect */
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            color: #b0bec5; /* Light Gray */
+            font-size: 0.9em;
+            font-family: sans-serif; /* Use a more readable font for the footer */
         }
     </style>
 </head>
 <body>
 
-    <h1>Willkommen im Weltraum-Abenteuer</h1>
+    <h1>Willkommen zu unserem Abenteuer!</h1>
+    <h2>Lerne, wie man mit AI Webseiten baut</h2>
 
-    <img src="https://images.unsplash.com/photo-1537953773345-d172cc5d1356?q=80&w=1932&auto=format&fit=crop" alt="Raumschiff im All" class="spaceship">
+    <img src="images/coder dojo penguin.png" alt="CoderDojo Penguin Mascot" class="penguin-image">
 
-    <div class="planets-container">
-        <figure class="planet">
-            <img src="https://images.unsplash.com/photo-1614728263952-84ea256ec677?q=80&w=1974&auto=format&fit=crop" alt="Planet 1">
-            <figcaption>Feuer-Planet</figcaption>
-        </figure>
-        <figure class="planet">
-            <img src="images/planet2.jpg" alt="Planet 2">
-            <figcaption>Eis-Welt</figcaption>
-        </figure>
-        <figure class="planet">
-            <img src="images/planet3.jpg" alt="Planet 3">
-            <figcaption>Gas-Riese</figcaption>
-        </figure>
-    </div>
+    <button class="start-button" onclick="window.location.href='slide2.html'">
+        Starte Level 1
+    </button>
 
-    <button class="action-button">Mission starten</button>
+    <footer>
+        CoderDojo Berlin - Powered by Kids
+    </footer>
 
 </body>
 </html>
