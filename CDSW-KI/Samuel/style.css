@@ -1,0 +1,21 @@
+body {
+    background-color: #111;
+    color: #eee;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#score-board {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+#game-canvas {
+    background-color: #006400; /* Dunkelgrün für den Rasen */
+    border: 2px solid #eee;
+}
